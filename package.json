@@ -1,4 +1,7 @@
 {
+    "engines": {
+    "node": "6.9.4"
+  },
   "dependencies": {
     "angular": "^1.6.2",
     "angular-ui-router": "1.0.0-beta.3",
