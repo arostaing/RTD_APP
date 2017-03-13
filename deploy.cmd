@@ -110,6 +110,14 @@ IF /I "gulpfile.js" NEQ "" (
   echo Installing Gulp dependencies: Starting %TIME%
   pushd "%DEPLOYMENT_TARGET%"
   call npm install gulp
+  call npm install gulp-hub
+  call npm install gulp-filter
+  call npm install gulp-util
+  call npm install gulp-angular-filesort
+  call npm install gulp-htmlmin 
+  call npm install gulp-insert
+  call npm install gulp-ng-annotate
+  call npm install gulp-sass 
   echo Installing Gulp dependencies: Finished %TIME%
   REM IF !ERRORLEVEL! NEQ 0 goto error
   REM echo Running Gulp deployment: Starting %TIME%
