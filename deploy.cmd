@@ -108,24 +108,26 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 :: 4. Install gulp
 IF /I "gulpfile.js" NEQ "" (
   echo Installing Gulp dependencies: Starting %TIME%
+  pushd "%DEPLOYMENT_TARGET%"
   call npm install gulp
   echo Installing Gulp dependencies: Finished %TIME%
+  REM IF !ERRORLEVEL! NEQ 0 goto error
+  REM echo Running Gulp deployment: Starting %TIME%
+  REM call :ExecuteCmd "%DEPLOYMENT_SOURCE%\node_modules\.bin\gulp build"
+  REM echo Running Gulp deployment: Finished %TIME%
   IF !ERRORLEVEL! NEQ 0 goto error
-  echo Running Gulp deployment: Starting %TIME%
-  call :ExecuteCmd "%DEPLOYMENT_SOURCE%\node_modules\.bin\gulp build"
-  echo Running Gulp deployment: Finished %TIME%
-  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
 )
 
 :: 5. In deploy.cmd file include below lines of code after installing npm packages (after line 107)
 :: https://blogs.msdn.microsoft.com/azureossds/2015/10/22/using-gulp-in-node-js-azure-webapps/
 
-REM IF EXIST "Gulpfile.js" (
-REM  pushd "%DEPLOYMENT_TARGET%"
-REM  call .\node_modules\.bin\gulp build
-REM  IF !ERRORLEVEL! NEQ 0 goto error
-REM  popd
-REM  )
+IF EXIST "Gulpfile.js" (
+pushd "%DEPLOYMENT_TARGET%"
+call .\node_modules\.bin\gulp build
+IF !ERRORLEVEL! NEQ 0 goto error
+popd
+)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
