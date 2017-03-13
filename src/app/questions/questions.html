@@ -1,0 +1,33 @@
+<div ng-if="!$ctrl.callDone">
+  <div class="welcome">
+    <h1>Do you want to be in contact with us?</h1>
+    <h1>Please submit your info</h1>
+  </div>
+  <div class="form">
+    <div class="form_info">
+      <form class="simple-form">
+        <section>
+          <label for="name">Name</label>
+          <input type="text" ng-model="user.name" id="name" name="name" required/>
+          <label for="email">E-mail</label>
+          <input type="email" ng-model="user.email" id="email" name="email" required/>
+          <label for="technical">Technical area of interest</label>
+          <select type="text" ng-model="user.technical" id="technical" name="technical">
+            <option value="FE">FrontEnd</option>
+            <option value="BE">BackEnd</option>
+            <option value="ALL">FrontEnd + BackEnd</option>
+          </select>
+        </section>
+        <section>
+          <div class="button" ng-click="$ctrl.update(user)">Send</div>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>
+<div ng-if="$ctrl.callDone">
+  <div class="welcome">
+    <img src="/../../images/icon_ok2.png" class="icon-ok-end"/>
+    <h1>Thanks for coming! <br/> We will be in contact!</h1>
+  </div>
+</div>

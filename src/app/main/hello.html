@@ -1,0 +1,19 @@
+<div ng-if="$ctrl.showFirstPage">
+  <div class="cloud_image_container">
+    <img src="/../../images/img_nube.png" class="cloud_image">
+  </div>
+  <h1 class="welcome" ng-click="$ctrl.goAhead()">Welcome to <br/>the Real Time Deployment<br/>of Cloud Services</h1>
+</div>
+<div ng-if="!$ctrl.showFirstPage">
+  <h1 class="welcome">Why do you come to Cognizant?</h1>
+  <div class="btn-containers">
+    <div class="btn" ng-click="$ctrl.selectOption(1)" ng-class="{'active' : $ctrl.check1}">
+      <img src="/../../images/icon_ok.png" class="icon-ok"/>
+      <span class="btn_text">I am interested in Cognizant</span>
+    </div>
+    <div class="btn" ng-click="$ctrl.selectOption(2)" ng-class="{'active' : $ctrl.check2}">
+      <img src="/../../images/icon_ok.png" class="icon-ok"/>
+      <span class="btn_text">I am interested in other topic</span>
+    </div>
+  </div>
+</div>

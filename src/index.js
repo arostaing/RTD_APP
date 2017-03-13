@@ -1,6 +1,9 @@
 var angular = require('angular');
 
-var hello = require('./app/hello');
+var hello = require('./app/main/hello');
+var questions = require('./app/questions/questions');
+var technologies = require('./app/technologies/technologies');
+
 require('angular-ui-router');
 var routesConfig = require('./routes');
 
@@ -12,4 +15,7 @@ module.exports = app;
 angular
   .module(app, ['ui.router'])
   .config(routesConfig)
-  .component('app', hello);
+  .component('app', hello)
+  .component('questions', questions)
+  .component('technologies', technologies);
+
