@@ -69,7 +69,7 @@ module.exports = {
     filename: '[name]-[hash].js'
   },
   entry: {
-    app: `./${conf.path.src('index')}`,
+    app: './${conf.path.src('index')}',
     vendor: Object.keys(pkg.dependencies)
   }
 };

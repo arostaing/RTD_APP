@@ -29,7 +29,7 @@ module.exports = function (config) {
       ]
     },
     ngHtml2JsPreprocessor: {
-      stripPrefix: `${conf.paths.src}/`
+      stripPrefix: '${conf.paths.src}/'
     },
     reporters: ['progress', 'coverage'],
     coverageReporter: {

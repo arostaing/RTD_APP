@@ -10,7 +10,7 @@ gulp.task('karma:auto-run', karmaAutoRun);
 
 function karmaFinishHandler(done) {
   return failCount => {
-    done(failCount ? new Error(`Failed ${failCount} tests.`) : null);
+    done(failCount ? new Error('Failed ${failCount} tests.') : null);
   };
 }
 
