@@ -1,6 +1,6 @@
 module.exports = {
   template: require('./technologies.html'),
-  controller: function ($log) {
+  controller: function () {
     var io = require('socket.io-client')('http://localhost:9001', {reconnect: true});
     var socket = io.connect();
     var userId = Math.floor((Math.random() * 6) + 1);
@@ -21,9 +21,6 @@ module.exports = {
       }
       var dataToSend = {userId: userId, option1: this.check1, option2: this.check2, option3: this.check3};
       socket.emit('technologies', dataToSend);
-      socket.on('qGraph', function (msg) {
-        $log.error('Recibido msg' + msg);
-      });
     };
   }
 };

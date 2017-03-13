@@ -17,5 +17,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('technologies', {
       url: '/technologies',
       component: 'technologies'
+    })
+    .state('messages', {
+      url: '/messages',
+      component: 'messages'
     });
 }

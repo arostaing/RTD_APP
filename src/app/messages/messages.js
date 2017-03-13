@@ -1,15 +1,19 @@
 module.exports = {
-  template: require('./questions.html'),
-  controller: function ($http, $log) {
-    this.callDone = false;
-    this.update = function (user) {
-      var data = {name: user.name, email: user.email, technical: user.technical};
-      $http.post('http://localhost:3030/api/users', data).then(function () {
-        $log.info('OK');
-        this.callDone = true;
-      }, function () {
-        $log.info('KO');
-      });
+  template: require('./messages.html'),
+  controller: function () {
+    var io = require('socket.io-client')('http://localhost:9001', {reconnect: true});
+    var socket = io.connect();
+    this.haveTheName = false;
+    this.message = null;
+    this.myName = null;
+    this.chooseName = function (name) {
+      this.myName = name;
+      this.haveTheName = true;
+    };
+    this.sendMessage = function () {
+      var dataToSend = {user: this.myName, message: this.message};
+      socket.emit('messages', dataToSend);
+      this.message = null;
     };
   }
 };
