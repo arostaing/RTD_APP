@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 /**
  *  This file contains the variables used in other gulp files
