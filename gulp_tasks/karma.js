@@ -9,7 +9,7 @@ gulp.task('karma:single-run', karmaSingleRun);
 gulp.task('karma:auto-run', karmaAutoRun);
 
 function karmaFinishHandler(done) {
-  return function failCount() {
+  return function (failCount) {
     done(failCount ? new Error('Failed ${failCount} tests.') : null);
   };
 }
