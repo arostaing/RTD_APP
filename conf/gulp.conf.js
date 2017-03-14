@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 /**
  *  This file contains the variables used in other gulp files
@@ -8,8 +8,8 @@
  *  of the tasks
  */
 
-var path = require('path');
-var gutil = require('gulp-util');
+const path = require('path');
+const gutil = require('gulp-util');
 
 exports.ngModule = 'app';
 
@@ -32,12 +32,12 @@ exports.htmlmin = {
 };
 
 exports.path = {};
-for (var pathName in exports.paths) {
+for (const pathName in exports.paths) {
   if (Object.prototype.hasOwnProperty.call(exports.paths, pathName)) {
     exports.path[pathName] = function () {
-      var pathValue = exports.paths[pathName];
-      var funcArgs = Array.prototype.slice.call(arguments);
-      var joinArgs = [pathValue].concat(funcArgs);
+      const pathValue = exports.paths[pathName];
+      const funcArgs = Array.prototype.slice.call(arguments);
+      const joinArgs = [pathValue].concat(funcArgs);
       return path.join.apply(this, joinArgs);
     };
   }
